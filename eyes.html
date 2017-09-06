@@ -1,0 +1,106 @@
+<meta charset="utf-8">
+<style>
+
+/*.topwrapper {
+  width: 100%;
+  height: 50px;
+}*/
+
+.howmany {
+  text-align: center;
+  width: 100%;
+  top: 50px;
+  /*height: 40px;*/
+  margin-bottom: 5px;
+  color: black;
+  font-size: 24px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: black;
+
+}
+.midwrapper {
+  text-align: center;
+  width: 100%;
+  /*height: 50px;*/
+  margin-bottom: 15px;
+  color: black;
+  font-size: 12px;
+  font-family: 'Raleway', sans-serif;
+
+}
+
+</style>
+
+<!--  include necessary scripts etc. -->
+<script src="https://d3js.org/d3.v3.min.js"></script>
+<!-- <script type="text/javascript" src="jquery.v1-7-2.js"></script> -->
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<!-- <script src="clienttester.js"></script> -->
+<!-- <script src="tester.js"></script> -->
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://code.jquery.com/jquery-1.8.0.min.js"></script>
+<!-- <script src="assets/js/script.js"></script> -->
+<!-- <link href="https://fonts.googleapis.com/css?family=Lato|Raleway:400,400i|Roboto:400,400i" rel="stylesheet"> -->
+<link href="https://fonts.googleapis.com/css?family=Roboto:700" rel="stylesheet">
+<body>
+
+
+
+<!-- <div id = "a"><h1 id ="a">Welcome to Abe's bizarre playground</h1></div> -->
+
+  <!--  original counter counts here-->
+<div id ="count_up">
+
+
+</div>
+
+<!-- <img src="http://localhost:3000/eyes.jpg"/> -->
+  <!--  where data from server is displayed in red-->
+<div class="topwrapper"><div id ="eyesays" class="howmany"></div></div>
+<div class="midwrapper">You are watching the same number of pairs of eyes eyes as people watching this website. You are all watching the same thing, which is watching you.</div>
+<div id ="eyediv" style="color:red"></div>
+
+
+
+<!--  below script should be targeted exclusively at transmitting body html to server (tester.js), and receiving info from tester.js that's displayed in -->
+</body>
+<script>
+var countup = 0;
+
+$(function() {
+
+  // necessary for socket stuff
+  var socket = io();
+
+
+  setInterval(delayedTimer, 1000);
+
+  function delayedTimer() {
+    if (countup <= 10) {
+      countup = countup +1;
+      socket.emit('counting',$('#count_up').html());
+    }
+  }
+
+// This is supposed to take info emitted from server and display it in #eyediv
+  socket.on('look', function(eyecounter){
+
+
+    if (eyecounter == 1) {
+     $('#eyesays').html("THERE IS ONLY ONE PAIR OF EYES WATCHING");
+     $('#eyediv').html(' ');
+     $('#eyediv').append("<img src='/eyes.jpg'/>");
+    }
+    else {
+      var imagecount = eyecounter - 1;
+
+     $('#eyesays').html("THERE ARE " + eyecounter + " PAIRS OF EYES WATCHING");
+     $('#eyediv').html(' ');
+     while (imagecount>=0) {
+       $('#eyediv').append("<img src='/eyes.jpg'/>");
+       imagecount = imagecount - 1;
+     }
+    }
+  });
+}); //end of JQUERY bracket
+</script>

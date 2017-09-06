@@ -1,0 +1,160 @@
+<meta charset="utf-8">
+
+<!-- TEMP STYLE SHEET HERE -->
+<style>
+
+
+
+.abename {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 450;
+  color:black;
+}
+
+#big_wrap {
+  background-color: pink;
+  height:100%;
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  -ms-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
+
+#spacer {
+  height:20px;
+}
+
+#left_middle {
+  height:200px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+}
+
+#right_middle {
+
+  height:200px;
+  text-align: right;
+  font-family: 'Raleway', sans-serif;
+}
+
+#feature_text {
+  color: black;
+}
+
+#the_foot {
+  position:absolute;
+  width: 150px;
+  left: 50%;
+  margin: 0 0 0 -75px;
+  bottom: 8px;
+  font-size: 10px;
+  font-family: 'Raleway', sans-serif;
+
+}
+
+.menustyle {
+  color:black;
+}
+
+.title:link {
+  color: black;
+  text-decoration: none;
+}
+
+.title:visited {
+  color: black;
+}
+.title:hover {
+  color: grey;
+}
+</style>
+
+
+<html>
+
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+<div id="big_wrap">
+<head>
+<link href="https://fonts.googleapis.com/css?family=Lato|Raleway:400,400i|Roboto:400,400i" rel="stylesheet">
+
+
+  <div class="row">
+  <h1 class="col-md-offset-1 abeName"><b><a href="/" class='title'>Abraham Chen</a></b></h1>
+  </div>
+
+</head>
+
+<body>
+
+  <!--  this is the line -->
+  <div class="row">
+    <div class="col-md-9 col-md-offset-1" style="background-color:black;height:5px;"></div>
+  </div>
+
+  <div class="row" id="spacer"></div>
+
+  <!-- This is your body row -->
+  <div class="row" id="boddyWrapper" >
+    <div class="col-md-offset-1" id="left_middle">
+      <p id="feature_text">
+        abrahamjchen at gmail
+      </p>
+      <p id="feature_text">
+        215.821.4268
+      </p>
+    </div>
+
+
+
+  </div>
+
+
+<div class="row" id="spacer"></div>
+
+
+<div class="row">
+  <div class="col-md-4 col-md-offset-4" id="the_foot">
+  U.S.A. - &copy; Abraham Chen
+  </div>
+</div>
+
+
+</body>
+
+
+
+<footer>
+
+</footer>
+</div>
+</html>
+
+<script type="text/javascript" src="public/browser.js"></script>
+
+<!-- <script>
+$(document).ready(function() {
+
+
+  var counter = 0;
+  var sugg_fill_color = ["#00FFFF","#a2a2d0", "#ffa62f", "#bc7889", "#90ee90"];
+  setInterval(change_background,5000);
+  function change_background() {
+    if (counter < 4) {
+      $("#big_wrap").css('background-color', sugg_fill_color[counter]);
+      counter = counter + 1;
+    } else {
+     $("#big_wrap").css('background-color', sugg_fill_color[counter]);
+     counter = 0;
+    }
+
+  }
+
+});
+</script> -->
